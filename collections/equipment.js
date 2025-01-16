@@ -3,23 +3,24 @@ const mongoose = require('mongoose');
 const equipmentSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: yes
+        required: true
     },
     type: {
         type: String,
-        requred: yes
+        required: true
     },
     condition: {
         type: String,
-        required: yes
+        required: true,
+        // enum: 
     },
     location: {
         type: String,
-        required: yes
+        required: true
     },
     lastChecked: {
         type: Date,
-        required: yes
+        required: true
     }
 });
 
