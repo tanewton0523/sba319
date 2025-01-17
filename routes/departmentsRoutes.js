@@ -1,6 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const Department = require('../collections/departments');
+const Joi = require('joi'); // For input validation
+
+// Validation schema
+const departmentSchema = Joi.object({
+    name: Joi.string().required(),
+    head: Joi.string().required(),
+    location: Joi.string().required()
+});
 
 // GET all departments
 router.get('/', async (req, res, next) => {

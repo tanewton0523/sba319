@@ -1,6 +1,16 @@
 const express = require('express');
 const router = express.Router();
 const Equipment = require('../collections/equipment');
+const Joi = require('joi'); // For input validation
+
+// Validation schema
+const equipmentSchema = Joi.object({
+    name: Joi.string().required(),
+    type: Joi.string().required(),
+    condition: Joi.string().valid('Good', 'Fair', 'Poor').required(),
+    location: Joi.string().required(),
+    lastChecked: Joi.date().required()
+});
 
 // GET all equipment
 router.get('/', async (req, res, next) => {

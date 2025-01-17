@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 const equipmentSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: true
+        required: true,
+        index: true
     },
     type: {
         type: String,
@@ -12,7 +13,7 @@ const equipmentSchema = new mongoose.Schema({
     condition: {
         type: String,
         required: true,
-        // enum: 
+        enum: ['Good', 'Fair', 'Poor'] // Added enum for validation
     },
     location: {
         type: String,

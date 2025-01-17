@@ -4,7 +4,8 @@ const maintenanceRecordsSchema = new mongoose.Schema({
     equipmentID: {
         type: mongoose.Schema.Types.ObjectID,
         ref: 'Equipment',
-        required: true
+        required: true,
+        index: true
     },
     action: {
         type: String,
